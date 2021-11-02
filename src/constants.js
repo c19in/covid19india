@@ -3,9 +3,13 @@ import {scaleOrdinal} from 'd3-scale';
 // export const API_DOMAIN = 'https://data.covid19india.org';
 // export const DATA_API_ROOT = `${API_DOMAIN}/v4/min`;
 
-// Want to change this to (but where is historical data?)
-export const API_DOMAIN = 'https://c19in.github.io';
-export const DATA_API_ROOT = `${API_DOMAIN}/data`;
+// To change this to a new data source. Ongoing efforts are
+// incovid19.org, datakind (TODO), covid19tracker.in. Of these, the
+// last has changed the API details (state timeseries files have
+// different names, so will not work with the covid19india frontend
+// as-is)
+export const API_DOMAIN = 'https://data.incovid19.org';
+export const DATA_API_ROOT = `${API_DOMAIN}/v4/min`;
 
 export const API_REFRESH_INTERVAL = 100000; // seconds
 
