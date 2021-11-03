@@ -2,7 +2,7 @@
   "name": "incovid19",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://c19in.github.io/covid19india/",
+  "homepage": ".",
   "dependencies": {
     "@primer/octicons-react": "^14.2.2",
     "@testing-library/jest-dom": "^5.14.1",
