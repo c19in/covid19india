@@ -43,7 +43,8 @@ const StateDropdown = ({stateCode, trail}) => {
   const handleClick = useCallback(
     (stateCodeItr) => {
       setShowDropdown(false);
-      history.push(`/state/${stateCodeItr}`);
+      console.log(process.env.PUBLIC_URL);
+      history.push(`${process.env.PUBLIC_URL}/state/${stateCodeItr}`);
     },
     [history]
   );

@@ -1,0 +1,2 @@
+(this.webpackJsonpincovid19=this.webpackJsonpincovid19||[]).push([[37],{244:function(i,e,n){"use strict";n.r(e);var a=n(19);e.default=function(i){return Object(a.jsx)("div",{className:"Banner fadeInDown",style:{animationDelay:"0.4s"},children:Object(a.jsxs)("div",{className:"wrapper",children:["The covid19india.org frontend using data from data.incovid19.org. Details\xa0 ",Object(a.jsx)("a",{href:"https://c19in.github.io",children:"here"}),"."]})})}}}]);
+//# sourceMappingURL=37.e90fd22c.chunk.js.map

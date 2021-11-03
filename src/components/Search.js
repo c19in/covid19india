@@ -296,7 +296,8 @@ function Search() {
       {results.length > 0 && (
         <div className="results">
           {results.map((result, index) => (
-            <Link key={index} to={`state/${result.route}`}>
+            // eslint-disable-next-line
+            <Link key={index} to={`${process.env.PUBLIC_URL}/state/${result.route}`}>
               <div className="result">
                 <div className="result-left">
                   <div className="result-name">

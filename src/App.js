@@ -1,6 +1,11 @@
 import './App.scss';
 // import Blog from './components/Blog';
+// eslint-disable-next-line
 import Navbar from './components/Navbar';
+// To have Navbar, add
+// <Navbar {...{pages, showLanguageSwitcher, setShowLanguageSwitcher}} />
+// before <Banner...
+
 import {retry} from './utils/commonFunctions';
 
 import {lazy, useState, Suspense, useEffect} from 'react';
@@ -8,7 +13,7 @@ import {Route, Redirect, Switch, useLocation} from 'react-router-dom';
 
 const Home = lazy(() => retry(() => import('./components/Home')));
 // const Volunteers = lazy(() => retry(() => import('./components/Volunteers')));
-const About = lazy(() => retry(() => import('./components/About')));
+// const About = lazy(() => retry(() => import('./components/About')));
 const State = lazy(() => retry(() => import('./components/State')));
 const LanguageSwitcher = lazy(() =>
   retry(() => import('./components/LanguageSwitcher'))
@@ -21,10 +26,10 @@ const App = () => {
 
   const pages = [
     {
-      pageLink: '/',
+      pageLink: process.env.PUBLIC_URL,
       view: Home,
       displayName: 'Home',
-      showInNavbar: true,
+      showInNavbar: false,
     },
     // {
     //   pageLink: '/blog',
@@ -39,13 +44,12 @@ const App = () => {
     //   showInNavbar: true,
     // },
     {
-      pageLink: '/about',
-      view: About,
+      pageLink: 'https://c19in.github.io/about',
       displayName: 'About',
-      showInNavbar: true,
+      showInNavbar: false,
     },
     {
-      pageLink: '/state/:stateCode',
+      pageLink: process.env.PUBLIC_URL + '/state/:stateCode',
       view: State,
       displayName: 'State',
       showInNavbar: false,
@@ -68,11 +72,8 @@ const App = () => {
           {...{showLanguageSwitcher, setShowLanguageSwitcher}}
         />
       </Suspense>
-
-      <Navbar {...{pages, showLanguageSwitcher, setShowLanguageSwitcher}} />
-
       <Banner />
-
+      <Navbar {...{pages, showLanguageSwitcher, setShowLanguageSwitcher}} />
       <Suspense fallback={<div />}>
         <Switch location={location}>
           {pages.map((page, index) => {

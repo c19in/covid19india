@@ -7,7 +7,8 @@ import {
 import locales from '../i18n/locales.json';
 
 import {useState, useCallback, useRef} from 'react';
-import {Book, HelpCircle, Home, Moon, Sun, Users} from 'react-feather';
+// import {Book, HelpCircle, Home, Moon, Sun, Users} from 'react-feather';
+import {Home, Moon, Sun} from 'react-feather';
 import {useTranslation} from 'react-i18next';
 import {Link} from 'react-router-dom';
 import {useTransition, animated} from 'react-spring';
@@ -33,6 +34,7 @@ function Navbar({pages, showLanguageSwitcher, setShowLanguageSwitcher}) {
     enter: {opacity: 1},
   });
 
+  // eslint-disable-next-line
   const expandTransition = useTransition(expand, {
     from: windowSize.width < 769 ? SLIDE_IN_MOBILE : SLIDE_IN,
     enter: windowSize.width < 769 ? SLIDE_OUT_MOBILE : SLIDE_OUT,
@@ -51,16 +53,12 @@ function Navbar({pages, showLanguageSwitcher, setShowLanguageSwitcher}) {
     setShowLanguageSwitcher(!showLanguageSwitcher);
   }, [expand, showLanguageSwitcher, setExpand, setShowLanguageSwitcher]);
 
+  // FIXME: used covid19india below because ${process.env.PUBLIC_URL} encodes
+
   return navbarTransition((style, item) => (
     <animated.div className="Navbar" {...{style}}>
       <div className="navbar-left" onClick={handleLanguageSwitcher}>
         {locales[currentLanguage]}
-      </div>
-
-      <div className="navbar-middle">
-        <Link to="/" onClick={setExpand.bind(this, false)}>
-          Covid19<span>India</span>
-        </Link>
       </div>
 
       <div
@@ -76,24 +74,9 @@ function Navbar({pages, showLanguageSwitcher, setShowLanguageSwitcher}) {
 
         {windowSize.width >= 769 && (
           <>
-            <Link to="/">
+            <Link to="/covid19india">
               <span>
                 <Home {...activeNavIcon('/')} />
-              </span>
-            </Link>
-            <Link to="/blog">
-              <span>
-                <Book {...activeNavIcon('/blog')} />
-              </span>
-            </Link>
-            <Link to="/volunteers">
-              <span>
-                <Users {...activeNavIcon('/volunteers')} />
-              </span>
-            </Link>
-            <Link to="/about">
-              <span>
-                <HelpCircle {...activeNavIcon('/about')} />
               </span>
             </Link>
             <span>
@@ -102,19 +85,11 @@ function Navbar({pages, showLanguageSwitcher, setShowLanguageSwitcher}) {
           </>
         )}
       </div>
-
-      {expandTransition(
-        (style, item) =>
-          item && (
-            <animated.div {...{style}}>
-              <Expand {...{pages, setExpand, darkMode, windowSize}} />
-            </animated.div>
-          )
-      )}
     </animated.div>
   ));
 }
 
+// eslint-disable-next-line
 function Expand({pages, setExpand, darkMode, windowSize}) {
   const expandElement = useRef(null);
   const {t} = useTranslation();
@@ -145,12 +120,7 @@ function Expand({pages, setExpand, darkMode, windowSize}) {
         }
         return null;
       })}
-
       {windowSize.width < 769 && <SunMoon {...{darkMode}} />}
-
-      <div className="expand-bottom">
-        <h5>{t('A crowdsourced initiative.')}</h5>
-      </div>
     </div>
   );
 }

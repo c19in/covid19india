@@ -311,7 +311,9 @@ function MapVisualizer({
         svg.select('.regions').selectAll('path').attr('pointer-events', 'none');
         // Switch map
         history.push(
-          `/state/${stateCode}${window.innerWidth < 769 ? '#MapExplorer' : ''}`
+          `${process.env.PUBLIC_URL}/state/${stateCode}${
+            window.innerWidth < 769 ? '#MapExplorer' : ''
+          }`
         );
       })
       .call((sel) => {
@@ -416,9 +418,9 @@ function MapVisualizer({
         if (onceTouchedRegion.current || mapMeta.mapType === MAP_TYPES.STATE)
           return;
         history.push(
-          `/state/${STATE_CODES[feature.properties.st_nm]}${
-            window.innerWidth < 769 ? '#MapExplorer' : ''
-          }`
+          `${process.env.PUBLIC_URL}/state/${
+            STATE_CODES[feature.properties.st_nm]
+          }${window.innerWidth < 769 ? '#MapExplorer' : ''}`
         );
       })
       .call((sel) => {
@@ -506,9 +508,9 @@ function MapVisualizer({
         if (onceTouchedRegion.current || mapMeta.mapType === MAP_TYPES.STATE)
           return;
         history.push(
-          `/state/${STATE_CODES[feature.properties.st_nm]}${
-            window.innerWidth < 769 ? '#MapExplorer' : ''
-          }`
+          `${process.env.PUBLIC_URL}/state/${
+            STATE_CODES[feature.properties.st_nm]
+          }${window.innerWidth < 769 ? '#MapExplorer' : ''}`
         );
       })
       .call((sel) => {

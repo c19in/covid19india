@@ -151,7 +151,7 @@ function Row({
 
   const handleStatePageClick = useCallback(
     (stateCode) => {
-      history.push(`state/${stateCode}`);
+      history.push(`${process.env.PUBLIC_URL}/state/${stateCode}`);
     },
     [history]
   );
