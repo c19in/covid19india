@@ -53,7 +53,7 @@ function Navbar({pages, showLanguageSwitcher, setShowLanguageSwitcher}) {
     setShowLanguageSwitcher(!showLanguageSwitcher);
   }, [expand, showLanguageSwitcher, setExpand, setShowLanguageSwitcher]);
 
-  // FIXME: used covid19india below because ${process.env.PUBLIC_URL} encodes
+  // FIXME: used covid19india below because ${process.env.PUBLIC_URL} encodes slash
 
   return navbarTransition((style, item) => (
     <animated.div className="Navbar" {...{style}}>
