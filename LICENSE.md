@@ -1,5 +1,6 @@
 MIT License
 
+Copyright (c) 2020 Jeremy Philemon
 Copyright (c) 2020-2021 covid19india Team
 Copyright (c) 2021 Deepayan Sarkar
 
